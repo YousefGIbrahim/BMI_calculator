@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI and Calorie Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="welcomePage" class="page">
+        <h1>Welcome!</h1>
+        <label for="userName">Enter your name:</label>
+        <input type="text" id="userName" placeholder="Your Name">
+        <button onclick="startApp()">Start</button>
+    </div>
+
+    <div id="mainPage" class="page hidden">
+        <h1>Welcome, <span id="userDisplay">Jhoon</span>!</h1>
+        <h4>BMI = Body Mass Index</h4>
+        <nav>
+            <button onclick="showPage('metricsPage')">Metrics</button>
+            <button onclick="showPage('bmiPage')">BMI</button>
+            <button onclick="showPage('caloriesPage')">Calories</button>
+        </nav>
+
+        <div id="metricsPage" class="sub-page hidden">
+            <h2>Input your body metrics</h2>
+            <label>Sex:
+                <select id="sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </label>
+            <label>Age: <input type="number" id="age" min="1"></label>
+            <label>Feet: <input type="number" id="feet" min="0"></label>
+            <label>Inches: <input type="number" id="inches" min="0"></label>
+            <label>Weight (lbs): <input type="number" id="weight" min="1"></label>
+            <label>Activity Level:
+                <select id="activity">
+                    <option value="Little or no exercise">Little or no exercise</option>
+                    <option value="Exercise 1-3 times/week">Exercise 1-3 times/week</option>
+                    <option value="Exercise 3-5 times/week">Exercise 3-5 times/week</option>
+                    <option value="Exercise 6-7 times/week">Exercise 6-7 times/week</option>
+                    <option value="Very intense exercise or 2x training">Very intense exercise or 2x training</option>
+                </select>
+            </label>
+            <button onclick="calculate()">Calculate</button>
+        </div>
+
+        <div id="bmiPage" class="sub-page hidden">
+            <h2>BMI Results</h2>
+            <p><strong>BMI:</strong> <span id="bmiResult"></span></p>
+            <table>
+                <tr>
+                    <th>BMI</th>
+                    <th>Categories</th>
+                </tr>
+                <tr><td>&lt; 18.5</td><td>Underweight</td></tr>
+                <tr><td>18.5 - 24.9</td><td>Healthy</td></tr>
+                <tr><td>25 - 29.9</td><td>Overweight</td></tr>
+                <tr><td>&gt; 30</td><td>Obese</td></tr>
+            </table>
+        </div>
+
+        <div id="caloriesPage" class="sub-page hidden">
+            <h2>Calories Results</h2>
+            <p>Maintenance: <span id="caloriesResult"></span> cal/day</p>
+            <p>Mild weight loss (0.5 lbs/week): <span id="caloriesMildResult"></span> cal/day</p>
+            <p>Weight loss (1 lb/week): <span id="caloriesLossResult"></span> cal/day</p>
+            <p>Extreme weight loss (2 lbs/week): <span id="caloriesExtremeResult"></span> cal/day</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
